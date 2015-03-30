@@ -32,7 +32,8 @@
 @menuTransition: none;
 
 @menuBorderWidth: 1px;
-@menuBorder: @menuBorderWidth solid @borderColor;
+@menuBorderColor: @borderColor;
+@menuBorder: @menuBorderWidth solid @menuBorderColor;
 @menuBoxShadow: 0px 1px 4px 0px @borderColor;
 @menuBorderRadius: 0em 0em @borderRadius @borderRadius;
 @menuTransition: opacity 0.2s ease;
@@ -82,7 +83,7 @@
 
 /* Menu Input */
 @menuInputMargin: 0.75rem @itemHorizontalPadding;
-@menuInputMinWidth: 200px;
+@menuInputMinWidth: 140px;
 @menuInputVerticalPadding: 0.5em;
 @menuInputHorizontalPadding: 1em;
 @menuInputPadding: @menuInputVerticalPadding @menuInputHorizontalPadding;
@@ -111,14 +112,16 @@
 --------------------*/
 
 /* Selection */
-@selectionMinWidth: 180px;
+@selectionMinWidth: 200px;
 @selectionBackground: @white;
 @selectionDisplay: inline-block;
-@selectionItemDivider: 1px solid rgba(0, 0, 0, 0.05);
-@selectionVerticalPadding: 0.8em;
+@selectionVerticalPadding: 0.78571em;
 @selectionHorizontalPadding: 1.1em;
-@selectionPadding: @selectionVerticalPadding @selectionHorizontalPadding;
+@selectionIconDistance: 2em;
+@selectionPadding: @selectionVerticalPadding @selectionIconDistance @selectionVerticalPadding @selectionHorizontalPadding;
 @selectionZIndex: 10;
+
+@selectionItemDivider: 1px solid rgba(0, 0, 0, 0.05);
 
 /* <select> */
 @selectBorder: 1px solid @borderColor;
@@ -126,8 +129,10 @@
 @selectVisibility: visible;
 @selectHeight: 38px;
 
-@selectionTextIconDistance: 2em;
 @selectionTextColor: @textColor;
+
+@selectionTextUnderlayIconOpacity: @disabledOpacity;
+@selectionTextUnderlayColor: @unselectedTextColor;
 
 @selectionBoxShadow: none;
 @selectionBorderColor: @borderColor;
@@ -164,12 +169,12 @@
 @selectionWidescreenMaxItems: 8;
 
 /* Derived */
-@selectedBorderEMWidth: 0.0714em;
-@selectionItemActualHeight: (@itemVerticalPadding * 2) + @itemLineHeight + @selectedBorderEMWidth;
-@selectionMobileMaxMenuHeight: (@selectionItemActualHeight * @selectionMobileMaxItems);
-@selectionTabletMaxMenuHeight: (@selectionItemActualHeight * @selectionTabletMaxItems);
-@selectionComputerMaxMenuHeight: (@selectionItemActualHeight * @selectionComputerMaxItems);
-@selectionWidescreenMaxMenuHeight: (@selectionItemActualHeight * @selectionWidescreenMaxItems);
+@selectedBorderEMWidth: 0.14285em; /* 2px / em size */
+@selectionItemHeight: (@selectionItemVerticalPadding * 2) + @itemLineHeight + @selectedBorderEMWidth;
+@selectionMobileMaxMenuHeight: (@selectionItemHeight * @selectionMobileMaxItems);
+@selectionTabletMaxMenuHeight: (@selectionItemHeight * @selectionTabletMaxItems);
+@selectionComputerMaxMenuHeight: (@selectionItemHeight * @selectionComputerMaxItems);
+@selectionWidescreenMaxMenuHeight: (@selectionItemHeight * @selectionWidescreenMaxItems);
 
 /* Hover */
 @selectionHoverBorderColor: @selectedBorderColor;
@@ -203,6 +208,27 @@
 @searchTabletMaxMenuHeight: @selectionTabletMaxMenuHeight;
 @searchComputerMaxMenuHeight: @selectionComputerMaxMenuHeight;
 @searchWidescreenMaxMenuHeight: @selectionWidescreenMaxMenuHeight;
+
+/* Multiple */
+@labelVerticalPadding: 0.4285em;
+@labelSize: @relativeSmall;
+@labelHorizontalPadding: @relativeMini;
+@labelPadding: @labelVerticalPadding @labelHorizontalPadding;
+
+@labelHorizontalSpacing: 0.5em;
+@labelVerticalSpacing: 0.5em;
+
+
+/* This is calculated from @selectionPadding - @labelSize * labelPadding */
+@multipleSelectionTopPadding: 0.2857em;
+@multipleSelectionRightPadding: @selectionIconDistance;
+@multipleSelectionBottomPadding: @multipleSelectionTopPadding;
+@multipleSelectionLeftPadding: (@selectionHorizontalPadding - @labelHorizontalPadding);
+
+@multipleSelectionInlineMargin: 0.4em 0em 0.4em 0.5em;
+@multipleSelectionInlineLineHeight: @searchSelectionLineHeight;
+
+@multipleSelectionSearchStartWidth: (@glyphWidth * 2);
 
 /* Inline */
 @inlineIconMargin: 0em 0.5em 0em 0.25em;
@@ -239,13 +265,32 @@
 @selectedColor: @selectedTextColor;
 
 /* Error */
-@errorItemTextColor: #D95C5C;
+@errorLabelBackground: #EACBCB;
+@errorLabelColor: @errorTextColor;
+
+@errorItemTextColor: @errorTextColor;
 @errorItemHoverBackground: #FFF2F2;
 @errorItemActiveBackground: #FDCFCF;
 
 /*-------------------
       Variations
 --------------------*/
+
+/* Scrolling */
+@scrollingMinWidth: 250px;
+@scrollingMenuItemBorder: @selectionItemDivider;
+
+@scrollingMobileMaxItems: 4;
+@scrollingTabletMaxItems: 6;
+@scrollingComputerMaxItems: 8;
+@scrollingWidescreenMaxItems: 12;
+
+@scrollingBorderEMWidth: 0.0785em; /* 1px / em size */
+@scrollingItemHeight: (@itemVerticalPadding * 2) + @itemLineHeight + @scrollingBorderEMWidth;
+@scrollingMobileMaxMenuHeight: (@scrollingItemHeight * @scrollingMobileMaxItems);
+@scrollingTabletMaxMenuHeight: (@scrollingItemHeight * @scrollingTabletMaxItems);
+@scrollingComputerMaxMenuHeight: (@scrollingItemHeight * @scrollingComputerMaxItems);
+@scrollingWidescreenMaxMenuHeight: (@scrollingItemHeight * @selectionWidescreenMaxItems);
 
 /* Upward */
 @upwardMenuBoxShadow: 0px 0px 4px 0px @borderColor;

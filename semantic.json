@@ -21,6 +21,7 @@
     "reset",
     "site",
     "button",
+    "container",
     "divider",
     "flag",
     "header",
@@ -67,5 +68,5 @@
     "state",
     "visibility"
   ],
-  "version": "1.11.6"
+  "version": "2.0.0"
 }

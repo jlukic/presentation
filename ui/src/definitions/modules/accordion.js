@@ -422,7 +422,7 @@ $.fn.accordion = function(parameters) {
               });
             }
             clearTimeout(module.performance.timer);
-            module.performance.timer = setTimeout(module.performance.display, 100);
+            module.performance.timer = setTimeout(module.performance.display, 500);
           },
           display: function() {
             var
@@ -534,7 +534,7 @@ $.fn.accordion.settings = {
   namespace       : 'accordion',
 
   debug           : false,
-  verbose         : true,
+  verbose         : false,
   performance     : true,
 
   exclusive       : true,

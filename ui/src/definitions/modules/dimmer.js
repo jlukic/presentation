@@ -484,7 +484,7 @@ $.fn.dimmer = function(parameters) {
               });
             }
             clearTimeout(module.performance.timer);
-            module.performance.timer = setTimeout(module.performance.display, 100);
+            module.performance.timer = setTimeout(module.performance.display, 500);
           },
           display: function() {
             var
@@ -603,7 +603,7 @@ $.fn.dimmer.settings = {
   namespace   : 'dimmer',
 
   debug       : false,
-  verbose     : true,
+  verbose     : false,
   performance : true,
 
   // name to distinguish between multiple dimmers in context

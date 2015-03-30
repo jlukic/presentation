@@ -44,6 +44,20 @@
 }
 
 /*--------------
+   Sub Heading
+---------------*/
+
+.ui.sub.header {
+  margin: 0em;
+  padding: 0em;
+  font-weight: @subHeadingFontWeight;
+  font-size: @subHeadingFontSize;
+  text-transform: @subHeadingTextTransform;
+  color: @subHeadingColor;
+}
+
+
+/*--------------
    Sub Header
 ---------------*/
 
@@ -122,7 +136,7 @@
 
 .ui.header .ui.label {
   font-size: @labelSize;
-  margin: 0em 0em 0em @labelDistance;
+  margin-left: @labelDistance;
   vertical-align: @labelVerticalAlign;
 }
 
@@ -385,6 +399,7 @@ a.ui.yellow.header:hover {
 .ui.inverted.attached.header {
   background: @invertedAttachedBackground;
   box-shadow: none;
+  border-color: transparent;
 }
 .ui.inverted.block.header {
   background: @invertedBlockBackground;

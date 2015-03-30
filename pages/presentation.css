@@ -1,0 +1,154 @@
+
+/* Fixed Menu */
+.fixed {
+  width: 100%;
+  position: fixed !important;
+  z-index: 1000;
+  text-align: center;
+}
+.fixed .ui.segment {
+  border-radius: 0;
+}
+.fixed .rounded.image {
+  position: absolute;
+  width: auto;
+  height: 50px;
+}
+.fixed .segment {
+  padding: 1em;
+  transition: all 0.5s;
+}
+.fixed .segment img {
+  margin-right: 2em;
+}
+
+.ui.grid .row {
+  padding: 2em 0em;
+}
+
+/* Before Show */
+.fixed .basic.ui.segment {
+  padding: 2em;
+  transition: all 0.5s;
+}
+
+/* All Stripes */
+.stripe.segment {
+  padding: 10em 0;
+  overflow: hidden;
+}
+.stripe.segment p {
+  font-size: 24px;
+}
+.stripe h1,
+.stripe h2 {
+  font-weight: 300 !important;
+}
+
+.stripe.segment b {
+  color: #009fda;
+}
+.stripe .icon.header .icon {
+  width: 200px;
+}
+
+.stripe .grid > .vertical.divider:after,
+.stripe .grid > .vertical.divider:before {
+  height: 100%;
+}
+
+/* First Stripe */
+.first.stripe.segment {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 90vh;
+}
+.first.stripe.segment h1 {
+  font-size: 4em;
+}
+.first.stripe.segment p {
+  font-size: 2em;
+}
+
+/* Problem Stripe */
+.problem.segment h1 + p {
+  margin-bottom: 2em;
+}
+.problem.segment h2 ~ p {
+  font-size: 18px;
+}
+.problem.segment .ui.grid .column {
+  visibility: hidden;
+}
+
+/* Solution Stripe */
+.solution .celled .icon.header .icon {
+  width: auto;
+}
+.solution .celled p {
+  font-size: 18px;
+}
+.solution .number {
+  background-color: #009fda;
+  color: #FFFFFF;
+  border-radius: 500rem;
+  display: inline-block;
+  font-size: 2rem;
+  margin-right: 1rem;
+  width: 4rem;
+  height: 4rem;
+  line-height: 0.9;
+  padding: 1rem;
+  text-align: center;
+  vertical-align: middle;
+}
+.solution .items {
+  width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.solution .items .description,
+.solution .items p {
+  font-size: 18px !important;
+}
+.solution .celled.grid {
+  width: 80%;
+  margin: 3em auto;
+}
+.solution .item .header {
+  font-size: 2em;
+}
+.solution .description {
+  margin-left: 5rem;
+  max-width: none !important;
+}
+
+.solution .grid .column,
+.solution  .items .item {
+  visibility: hidden;
+}
+
+/* Examples */
+.example.stripe h4 {
+  font-size: 1.25em;
+  font-weight: bold;
+  margin-bottom: 2em;
+  text-align: center;
+}
+.example.stripe .column > .ui {
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+.example.stripe:first-child {
+  border-top: none;
+}
+.example.stripe > .card {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+.example.stripe .label {
+  margin-bottom: 0.5em;
+  white-space: nowrap;
+}
+

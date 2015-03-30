@@ -179,10 +179,12 @@
       Transparent
 ---------------------*/
 
+
 .ui.transparent.input input {
-  border-color: transparent;
-  background-color: transparent;
-  padding: 0em;
+  border-color: transparent !important;
+  background-color: transparent !important;
+  padding: 0em !important;
+  box-shadow: none !important;
 }
 
 /* Transparent Icon */
@@ -344,6 +346,8 @@
 
 .ui.action.input > .button,
 .ui.action.input > .buttons {
+  display: flex;
+  align-items: center;
   flex-grow: 0;
 }
 .ui.action.input > .button,
@@ -405,25 +409,25 @@
 ---------------------*/
 
 .ui.mini.input {
-  font-size: @mini;
+  font-size: @relativeMini;
 }
 .ui.small.input {
-  font-size: @small;
+  font-size: @relativeSmall;
 }
 .ui.input {
-  font-size: @medium;
+  font-size: @relativeMedium;
 }
 .ui.large.input {
-  font-size: @large;
+  font-size: @relativeLarge;
 }
 .ui.big.input {
-  font-size: @big;
+  font-size: @relativeBig;
 }
 .ui.huge.input {
-  font-size: @huge;
+  font-size: @relativeHuge;
 }
 .ui.massive.input {
-  font-size: @massive;
+  font-size: @relativeMassive;
 }
 
 .loadUIOverrides();

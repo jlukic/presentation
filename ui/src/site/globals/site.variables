@@ -1,3 +1,10 @@
 /*******************************
      User Global Variables
 *******************************/
+
+@emSize: 16px;
+@fontSize: 16px;
+
+@h1: 4rem;
+@h2: 2rem;
+@h3: 1.5rem;

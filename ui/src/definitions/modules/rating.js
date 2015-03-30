@@ -285,7 +285,7 @@ $.fn.rating = function(parameters) {
               });
             }
             clearTimeout(module.performance.timer);
-            module.performance.timer = setTimeout(module.performance.display, 100);
+            module.performance.timer = setTimeout(module.performance.display, 500);
           },
           display: function() {
             var
@@ -400,7 +400,7 @@ $.fn.rating.settings = {
   namespace     : 'rating',
 
   debug         : false,
-  verbose       : true,
+  verbose       : false,
   performance   : true,
 
   initialRating : 0,
