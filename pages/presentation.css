@@ -34,7 +34,7 @@
 
 /* All Stripes */
 .stripe.segment {
-  padding: 10em 0;
+  padding: 8em 0;
   overflow: hidden;
 }
 .stripe.segment p {
@@ -69,6 +69,14 @@
 }
 .first.stripe.segment p {
   font-size: 2em;
+}
+
+/* Me Stripe */
+.me.stripe .middle.aligned.row {
+  padding-bottom: 0em;
+}
+.me.stripe .three.images img {
+  cursor: pointer;
 }
 
 /* Problem Stripe */

@@ -4,11 +4,11 @@ var site = {};
 site.ready = function() {
 
   var
-    $stripe      = $('.stripe'),
-    $menuItem    = $('.fixed .menu a.item'),
-    $problemGrid = $('.problem .grid .column'),
+    $stripe       = $('.stripe'),
+    $menuItem     = $('.fixed .menu a.item'),
+    $problemGrid  = $('.problem .grid .column'),
     $solutionGrid = $('.solution .grid .column, .solution .items .item'),
-    fixedHeight  = 84,
+    slideOffset   = 200,
     handler
   ;
 
@@ -53,6 +53,10 @@ site.ready = function() {
     }
   };
 
+  $('.me.segment .three img')
+    .popup()
+  ;
+
   $menuItem
     .on('click', function() {
       var
@@ -80,7 +84,7 @@ site.ready = function() {
 
   $stripe
     .visibility({
-      offset: fixedHeight,
+      offset: slideOffset,
       once: false,
       onTopPassed: handler.setActiveSlide,
       onBottomPassedReverse: handler.setActiveSlide
