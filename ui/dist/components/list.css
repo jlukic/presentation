@@ -455,12 +455,12 @@ ol.ui.list ol,
 }
 .ui.inverted.selection.list > .item:active,
 .ui.inverted.selection.list > .item:active {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.08);
   color: #ffffff;
 }
 .ui.inverted.selection.list > .item.active,
 .ui.inverted.selection.list > .item.active {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.08);
   color: #ffffff;
 }
 
@@ -809,40 +809,40 @@ ol.ui.horizontal.list li:before,
 --------------------*/
 
 .ui.mini.list {
-  font-size: 0.6875em;
+  font-size: 0.73333333em;
 }
 .ui.tiny.list {
-  font-size: 0.875em;
+  font-size: 0.86666667em;
 }
 .ui.small.list {
-  font-size: 0.9375em;
+  font-size: 0.93333333em;
 }
 .ui.list {
   font-size: 1em;
 }
 .ui.large.list {
-  font-size: 1.125em;
+  font-size: 1.13333333em;
 }
 .ui.big.list {
-  font-size: 1.3125em;
+  font-size: 1.26666667em;
 }
 .ui.huge.list {
-  font-size: 1.4375em;
+  font-size: 1.4em;
 }
 .ui.massive.list {
-  font-size: 1.6875em;
+  font-size: 1.73333333em;
 }
 .ui.mini.horizontal.list .list > .item,
 .ui.mini.horizontal.list > .item {
-  font-size: 0.6875rem;
+  font-size: 0.73333333rem;
 }
 .ui.tiny.horizontal.list .list > .item,
 .ui.tiny.horizontal.list > .item {
-  font-size: 0.875rem;
+  font-size: 0.86666667rem;
 }
 .ui.small.horizontal.list .list > .item,
 .ui.small.horizontal.list > .item {
-  font-size: 0.9375rem;
+  font-size: 0.93333333rem;
 }
 .ui.horizontal.list .list > .item,
 .ui.horizontal.list > .item {
@@ -850,19 +850,19 @@ ol.ui.horizontal.list li:before,
 }
 .ui.large.horizontal.list .list > .item,
 .ui.large.horizontal.list > .item {
-  font-size: 1.125rem;
+  font-size: 1.13333333rem;
 }
 .ui.big.horizontal.list .list > .item,
 .ui.big.horizontal.list > .item {
-  font-size: 1.3125rem;
+  font-size: 1.26666667rem;
 }
 .ui.huge.horizontal.list .list > .item,
 .ui.huge.horizontal.list > .item {
-  font-size: 1.4375rem;
+  font-size: 1.4rem;
 }
 .ui.massive.horizontal.list .list > .item,
 .ui.massive.horizontal.list > .item {
-  font-size: 1.6875rem;
+  font-size: 1.73333333rem;
 }
 
 

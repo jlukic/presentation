@@ -47,7 +47,7 @@
   background: #ffffff;
   min-width: 100%;
   white-space: nowrap;
-  font-size: 1rem;
+  font-size: 1em;
   text-shadow: none;
   text-align: left;
   box-shadow: 0px 1px 4px 0px rgba(34, 36, 38, 0.15);
@@ -108,7 +108,7 @@
   border-top: none;
   line-height: 1em;
   color: rgba(0, 0, 0, 0.8);
-  padding: 0.6875em 1.125em !important;
+  padding: 0.73333333em 1.13333333em !important;
   font-size: 1rem;
   text-transform: none;
   font-weight: normal;
@@ -148,7 +148,7 @@
 
 .ui.dropdown .menu > .header {
   margin: 1rem 0rem 0.75rem;
-  padding: 0em 1.125em;
+  padding: 0em 1.13333333em;
   color: rgba(0, 0, 0, 0.85);
   font-size: 0.7857rem;
   font-weight: bold;
@@ -161,7 +161,7 @@
 }
 .ui.dropdown .menu > .input {
   display: block;
-  margin: 0.75rem 1.125em;
+  margin: 0.75rem 1.13333333em;
   min-width: 140px;
 }
 .ui.dropdown .menu > .header + .input {
@@ -390,29 +390,29 @@ select.ui.dropdown {
 }
 @media only screen and (max-width: 767px) {
   .ui.selection.dropdown .menu {
-    max-height: 7.55355em;
+    max-height: 7.82855em;
   }
 }
 @media only screen and (min-width: 768px) {
   .ui.selection.dropdown .menu {
-    max-height: 10.0714em;
+    max-height: 10.43806667em;
   }
 }
 @media only screen and (min-width: 992px) {
   .ui.selection.dropdown .menu {
-    max-height: 15.1071em;
+    max-height: 15.6571em;
   }
 }
 @media only screen and (min-width: 1920px) {
   .ui.selection.dropdown .menu {
-    max-height: 20.1428em;
+    max-height: 20.87613333em;
   }
 }
 
 /* Menu Item */
 .ui.selection.dropdown .menu > .item {
   border-top: 1px solid rgba(0, 0, 0, 0.05);
-  padding: 0.6875em 1.125em !important;
+  padding: 0.73333333em 1.13333333em !important;
   white-space: normal;
   word-wrap: normal;
 }
@@ -552,22 +552,22 @@ select.ui.dropdown {
 }
 @media only screen and (max-width: 767px) {
   .ui.search.dropdown .menu {
-    max-height: 7.55355em;
+    max-height: 7.82855em;
   }
 }
 @media only screen and (min-width: 768px) {
   .ui.search.dropdown .menu {
-    max-height: 10.0714em;
+    max-height: 10.43806667em;
   }
 }
 @media only screen and (min-width: 992px) {
   .ui.search.dropdown .menu {
-    max-height: 15.1071em;
+    max-height: 15.6571em;
   }
 }
 @media only screen and (min-width: 1920px) {
   .ui.search.dropdown .menu {
-    max-height: 20.1428em;
+    max-height: 20.87613333em;
   }
 }
 
@@ -578,7 +578,7 @@ select.ui.dropdown {
 
 /* Multiple Selection */
 .ui.multiple.dropdown {
-  padding: 0.2857em 2em 0.2857em 0.4125em;
+  padding: 0.2857em 2em 0.2857em 0.36666667em;
 }
 .ui.multiple.dropdown .menu {
   cursor: auto;
@@ -598,14 +598,14 @@ select.ui.dropdown {
           user-select: none;
   display: inline-block;
   vertical-align: baseline;
-  padding: 0.4285em 0.6875em;
+  padding: 0.4285em 0.73333333em;
   margin: 0.25em 0.5em 0.25em 0em;
 }
 
 /* Dropdown Icon */
 .ui.multiple.dropdown .dropdown.icon {
-  margin: 0em -0.6875em 0em 0em;
-  padding: 0.4285em 0.6875em;
+  margin: 0em -0.73333333em 0em 0em;
+  padding: 0.4285em 0.73333333em;
 }
 
 /* Text */
@@ -761,25 +761,25 @@ select.ui.dropdown {
 .ui.dropdown.error,
 .ui.dropdown.error > .text,
 .ui.dropdown.error > .default.text {
-  color: #a94442;
+  color: #973230;
 }
 .ui.selection.dropdown.error {
   background: #fff0f0;
-  border-color: #dbb1b1;
+  border-color: #e0b4b4;
 }
 .ui.selection.dropdown.error:hover {
-  border-color: #dbb1b1;
+  border-color: #e0b4b4;
 }
 .ui.dropdown.error > .menu,
 .ui.dropdown.error > .menu .menu {
-  border-color: #dbb1b1;
+  border-color: #e0b4b4;
 }
 .ui.dropdown.error > .menu > .item {
-  color: #a94442;
+  color: #973230;
 }
 .ui.multiple.selection.error.dropdown > .label {
   background: #fff0f0;
-  border-color: #dbb1b1;
+  border-color: #e0b4b4;
 }
 
 /* Item Hover */
@@ -939,25 +939,25 @@ select.ui.dropdown {
 @media only screen and (max-width: 767px) {
   .ui.scrolling.dropdown .menu,
   .ui.dropdown .scrolling.menu {
-    max-height: 9.814em;
+    max-height: 10.18066667em;
   }
 }
 @media only screen and (min-width: 768px) {
   .ui.scrolling.dropdown .menu,
   .ui.dropdown .scrolling.menu {
-    max-height: 14.721em;
+    max-height: 15.271em;
   }
 }
 @media only screen and (min-width: 992px) {
   .ui.scrolling.dropdown .menu,
   .ui.dropdown .scrolling.menu {
-    max-height: 19.628em;
+    max-height: 20.36133333em;
   }
 }
 @media only screen and (min-width: 1920px) {
   .ui.scrolling.dropdown .menu,
   .ui.dropdown .scrolling.menu {
-    max-height: 19.628em;
+    max-height: 20.36133333em;
   }
 }
 

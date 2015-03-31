@@ -2866,10 +2866,10 @@ $.fn.dimmer = function(parameters) {
             $dimmable = $module;
             if( module.has.dimmer() ) {
               if(settings.dimmerName) {
-                $dimmer = $dimmable.children(selector.dimmer).filter('.' + settings.dimmerName);
+                $dimmer = $dimmable.find(selector.dimmer).filter('.' + settings.dimmerName);
               }
               else {
-                $dimmer = $dimmable.children(selector.dimmer);
+                $dimmer = $dimmable.find(selector.dimmer);
               }
             }
             else {
@@ -2898,8 +2898,8 @@ $.fn.dimmer = function(parameters) {
 
           if( module.is.closable() ) {
             module.verbose('Adding dimmer close event', $dimmer);
-            $dimmer
-              .on(clickEvent + eventNamespace, module.event.click)
+            $dimmable
+              .on(clickEvent + eventNamespace, selector.dimmer, module.event.click)
             ;
           }
           module.set.dimmable();
@@ -2920,9 +2920,6 @@ $.fn.dimmer = function(parameters) {
             .removeData(moduleNamespace)
           ;
           $dimmable
-            .off(eventNamespace)
-          ;
-          $dimmer
             .off(eventNamespace)
           ;
         },
@@ -3112,10 +3109,10 @@ $.fn.dimmer = function(parameters) {
         has: {
           dimmer: function() {
             if(settings.dimmerName) {
-              return ($module.children(selector.dimmer).filter('.' + settings.dimmerName).length > 0);
+              return ($module.find(selector.dimmer).filter('.' + settings.dimmerName).length > 0);
             }
             else {
-              return ( $module.children(selector.dimmer).length > 0 );
+              return ( $module.find(selector.dimmer).length > 0 );
             }
           }
         },
@@ -3137,10 +3134,10 @@ $.fn.dimmer = function(parameters) {
             return settings.closable;
           },
           dimmer: function() {
-            return $module.is(selector.dimmer);
+            return $module.hasClass(className.dimmer);
           },
           dimmable: function() {
-            return $module.is(selector.dimmable);
+            return $module.hasClass(className.dimmable);
           },
           dimmed: function() {
             return $dimmable.hasClass(className.dimmed);
@@ -3401,8 +3398,8 @@ $.fn.dimmer.settings = {
   name        : 'Dimmer',
   namespace   : 'dimmer',
 
-  debug       : false,
-  verbose     : false,
+  debug       : true,
+  verbose     : true,
   performance : true,
 
   // name to distinguish between multiple dimmers in context
@@ -3440,9 +3437,20 @@ $.fn.dimmer.settings = {
     method   : 'The method you called is not defined.'
   },
 
+  className : {
+    active     : 'active',
+    animating  : 'animating',
+    dimmable   : 'dimmable',
+    dimmed     : 'dimmed',
+    dimmer     : 'ui dimmer',
+    disabled   : 'disabled',
+    hide       : 'hide',
+    pageDimmer : 'page',
+    show       : 'show'
+  },
+
   selector: {
-    dimmable : '.dimmable',
-    dimmer   : '.ui.dimmer',
+    dimmer   : '> .ui.dimmer',
     content  : '.ui.dimmer > .content, .ui.dimmer > .content > .center'
   },
 
@@ -3450,17 +3458,6 @@ $.fn.dimmer.settings = {
     dimmer: function() {
      return $('<div />').attr('class', 'ui dimmer');
     }
-  },
-
-  className : {
-    active     : 'active',
-    animating  : 'animating',
-    dimmable   : 'dimmable',
-    dimmed     : 'dimmed',
-    disabled   : 'disabled',
-    hide       : 'hide',
-    pageDimmer : 'page',
-    show       : 'show'
   }
 
 };
@@ -5762,7 +5759,6 @@ $.fn.modal = function(parameters) {
           module.create.dimmer();
           module.refreshModals();
 
-          module.verbose('Attaching close events', $close);
           module.bind.events();
           module.observeChanges();
           module.instantiate();
@@ -5871,8 +5867,13 @@ $.fn.modal = function(parameters) {
 
         bind: {
           events: function() {
-            $close.on('click' + eventNamespace, module.event.close);
-            $window.on('resize' + elementNamespace, module.event.resize);
+            module.verbose('Attaching events');
+            $module
+              .on('click' + eventNamespace, selector.close, module.event.close)
+            ;
+            $window
+              .on('resize' + elementNamespace, module.event.resize)
+            ;
           }
         },
 
@@ -6626,10 +6627,8 @@ $.fn.nag = function(parameters) {
           module.verbose('Initializing element');
 
           $module
+            .on('click' + eventNamespace, selector.close, module.dismiss)
             .data(moduleNamespace, module)
-          ;
-          $close
-            .on('click' + eventNamespace, module.dismiss)
           ;
 
           if(settings.detachable && $module.parent()[0] !== $context[0]) {
@@ -9157,11 +9156,9 @@ $.fn.rating = function(parameters) {
 
         destroy: function() {
           module.verbose('Destroying previous instance', instance);
+          module.remove.events();
           $module
             .removeData(moduleNamespace)
-          ;
-          $icon
-            .off(eventNamespace)
           ;
         },
 
@@ -9239,13 +9236,29 @@ $.fn.rating = function(parameters) {
           return currentRating;
         },
 
+        bind: {
+          events: function() {
+            module.verbose('Binding events');
+            $module
+              .on('mouseenter' + eventNamespace, selector.icon, module.event.mouseenter)
+              .on('mouseleave' + eventNamespace, selector.icon, module.event.mouseleave)
+              .on('click'      + eventNamespace, selector.icon, module.event.click)
+            ;
+          }
+        },
+
+        remove: {
+          events: function() {
+            module.verbose('Removing events');
+            $module
+              .off(eventNamespace)
+            ;
+          }
+        },
+
         enable: function() {
           module.debug('Setting rating to interactive mode');
-          $icon
-            .on('mouseenter' + eventNamespace, module.event.mouseenter)
-            .on('mouseleave' + eventNamespace, module.event.mouseleave)
-            .on('click' + eventNamespace, module.event.click)
-          ;
+          module.bind.events();
           $module
             .removeClass(className.disabled)
           ;
@@ -9253,9 +9266,7 @@ $.fn.rating = function(parameters) {
 
         disable: function() {
           module.debug('Setting rating to read-only mode');
-          $icon
-            .off(eventNamespace)
-          ;
+          module.remove.events();
           $module
             .addClass(className.disabled)
           ;
@@ -9593,18 +9604,17 @@ $.fn.search = function(parameters) {
               .attr('autocomplete', 'off')
             ;
           }
-          $prompt
-            .on('focus' + eventNamespace, module.event.focus)
-            .on('blur' + eventNamespace, module.event.blur)
-            .on('keydown' + eventNamespace, module.handleKeyboard)
-          ;
-          $searchButton
-            .on('click' + eventNamespace, module.query)
-          ;
-          $results
-            .on('mousedown' + eventNamespace, module.event.result.mousedown)
-            .on('mouseup' + eventNamespace, module.event.result.mouseup)
-            .on('click' + eventNamespace, selector.result, module.event.result.click)
+          $module
+            // prompt
+            .on('focus' + eventNamespace, selector.prompt, module.event.focus)
+            .on('blur' + eventNamespace, selector.prompt, module.event.blur)
+            .on('keydown' + eventNamespace, selector.prompt, module.handleKeyboard)
+            // search button
+            .on('click' + eventNamespace, selector.searchButton, module.query)
+            // results
+            .on('mousedown' + eventNamespace, selector.results, module.event.result.mousedown)
+            .on('mouseup' + eventNamespace, selector.results, module.event.result.mouseup)
+            .on('click' + eventNamespace, selector.results, selector.result, module.event.result.click)
           ;
           module.instantiate();
         },
@@ -9618,16 +9628,8 @@ $.fn.search = function(parameters) {
         destroy: function() {
           module.verbose('Destroying instance');
           $module
+            .off(eventNamespace)
             .removeData(moduleNamespace)
-          ;
-          $prompt
-            .off(eventNamespace)
-          ;
-          $searchButton
-            .off(eventNamespace)
-          ;
-          $results
-            .off(eventNamespace)
           ;
         },
         event: {

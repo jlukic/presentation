@@ -37,7 +37,7 @@
   padding: 8em 0;
   overflow: hidden;
 }
-.stripe.segment p {
+.stripe.segment .column > p {
   font-size: 24px;
 }
 .stripe h1,
@@ -45,11 +45,15 @@
   font-weight: 300 !important;
 }
 
+.ui.grid {
+  position: relative;
+}
+
 .stripe.segment b {
   color: #009fda;
 }
 .stripe .icon.header .icon {
-  width: 200px;
+  max-width: 200px;
 }
 
 .stripe .grid > .vertical.divider:after,
@@ -116,6 +120,9 @@
   margin-left: auto;
   margin-right: auto;
 }
+.solution .items + .grid {
+  margin: 5rem 0rem;
+}
 .solution .items .description,
 .solution .items p {
   font-size: 18px !important;
@@ -138,6 +145,12 @@
 }
 
 /* Examples */
+.example .grid .column {
+  visibility: hidden;
+}
+.example.stripe {
+  overflow: hidden;
+}
 .example.stripe h4 {
   font-size: 1.25em;
   font-weight: bold;
@@ -148,15 +161,41 @@
   margin-top: 2em;
   margin-bottom: 2em;
 }
+.example.stripe .column > .hidden.divider + .ui {
+  margin-top: 0;
+}
 .example.stripe:first-child {
   border-top: none;
 }
-.example.stripe > .card {
-  margin-left: auto !important;
-  margin-right: auto !important;
-}
-.example.stripe .label {
+.example.stripe .column > .label {
   margin-bottom: 0.5em;
   white-space: nowrap;
 }
 
+.traction.segment h2 {
+  margin-top: 3em;
+}
+
+.traction.segment .statistic {
+  max-width: none;
+}
+.traction.segment .statistic .value {
+  font-size: 8rem;
+}
+.traction.segment .statistic .label {
+  font-size: 1rem;
+}
+
+.traction.segment .statistic .sub {
+  font-size: 0.7em;
+  text-transform: none;
+}
+.traction.segment .statistic .label {
+  color: rgba(0, 0, 0, 0.8);
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.traction.segment {
+  min-height: 100vh;
+}

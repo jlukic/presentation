@@ -2,8 +2,8 @@
      User Global Variables
 *******************************/
 
-@emSize: 16px;
-@fontSize: 16px;
+@emSize: 15px;
+@fontSize: 15px;
 
 @h1: 4rem;
 @h2: 2rem;

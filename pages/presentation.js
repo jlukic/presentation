@@ -8,6 +8,7 @@ site.ready = function() {
     $menuItem     = $('.fixed .menu a.item'),
     $problemGrid  = $('.problem .grid .column'),
     $solutionGrid = $('.solution .grid .column, .solution .items .item'),
+    $exampleGrid  = $('.example .grid .column, .example .items .item'),
     slideOffset   = 200,
     handler
   ;
@@ -36,14 +37,28 @@ site.ready = function() {
           })
         ;
       }
+      if( $(this).hasClass('example') && !$exampleGrid.filter('.visible, .animating').length > 0) {
+        $exampleGrid
+          .eq(0)
+          .transition('horizontal flip', 700, function() {
+            $exampleGrid
+              .slice(1)
+              .transition({
+                animation : 'fade up in',
+                interval  : 200
+              })
+            ;
+          })
+        ;
+      }
       if( $(this).hasClass('solution') && !$solutionGrid.filter('.visible, .animating').length > 0) {
         $solutionGrid
           .eq(0)
-          .transition('fly down in', 1500, function() {
+          .transition('horizontal flip', 700, function() {
             $solutionGrid
               .slice(1)
               .transition({
-                animation : 'scale in',
+                animation : 'vertical flip in',
                 interval  : 200
               })
             ;
@@ -64,6 +79,12 @@ site.ready = function() {
         scroll = $stripe.eq(index).offset().top
       ;
       $(document).scrollTop(scroll);
+    })
+  ;
+
+  $('.dimmable')
+    .dimmer({
+      on: 'hover'
     })
   ;
 
@@ -101,8 +122,22 @@ site.ready = function() {
     })
   ;
 
+  $('.add.button')
+    .state({
+      text: {
+        inactive   : 'Add Friend',
+        active     : 'Friend'
+      }
+    })
+  ;
+
   $('.ui.dropdown')
     .dropdown()
+  ;
+  $('.menu .ui.dropdown')
+    .dropdown({
+      on: 'hover'
+    })
   ;
   $('.ui.checkbox')
     .checkbox()
